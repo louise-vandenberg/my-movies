@@ -1,5 +1,5 @@
 (() => ({
-  name: 'HelloWorld',
+  name: 'Landingpage',
   type: 'ROW',
   allowedTypes: [],
   orientation: 'HORIZONTAL',

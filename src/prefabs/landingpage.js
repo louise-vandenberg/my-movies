@@ -4,7 +4,7 @@
   category: 'CONTENT',
   structure: [
     {
-      name: 'HelloWorld',
+      name: 'Landingpage',
       options: [
         {
           value: '',
