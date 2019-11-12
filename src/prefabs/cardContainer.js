@@ -6,7 +6,13 @@
       {
         name: 'CardContainer',
         options: [
-        
+          {
+            type: "MODEL",
+            value: '',
+            key: "modelId",
+            label: "Model"
+
+          }
         ],
         descendants: [],
       },
