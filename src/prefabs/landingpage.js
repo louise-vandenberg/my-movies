@@ -1,5 +1,5 @@
 (() => ({
-  name: 'Hello world',
+  name: 'Landing Page',
   icon: 'HeadingIcon',
   category: 'CONTENT',
   structure: [
@@ -18,6 +18,12 @@
           key: 'headingType',
           type: 'HEADING_TYPOGRAPHY',
         },
+        {
+          value: '/movies',
+          label: 'Link to Page',
+          key: 'endpointId',
+          type: 'ENDPOINT'
+        }
       ],
       descendants: [],
     },
