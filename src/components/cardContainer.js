@@ -1,24 +1,19 @@
 (() => ({
-    name: 'Card',
-    type: 'CARD',
-    allowedTypes: [],
+    name: 'CardContainer',
+    type: 'ROW',
+    allowedTypes: ["CARD"],
     orientation: 'HORIZONTAL',
     jsx: (()=> {
         if(B.env === 'dev'){
             return (
                 <div className={classes.root}>
-                     <div className={classes.heading}>
-                         TITLE
-                     </div>
-                     <div className={classes.image}>
-                         IMAGE
-                     </div>
+                    bleh
                 </div>
             );
         } else{
             return(
                 <div className={classes.root}>
-                    Hello
+                    
                 </div>
             );
         }
@@ -27,7 +22,7 @@
     styles: B => ({ typography }) => ({
       root: {
             display: 'grid',
-            gridTemplateAreas: "'header header header''content content content'",
+            gridTemplateAreas: "'header header header' 'content content content'",
 
   
       },

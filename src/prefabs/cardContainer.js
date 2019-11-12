@@ -1,10 +1,10 @@
 (() => ({
-    name: 'Card',
+    name: 'Card Container',
     icon: 'GridIcon',
     category: 'CONTAINER',
     structure: [
       {
-        name: 'Card',
+        name: 'CardContainer',
         options: [
         
         ],
