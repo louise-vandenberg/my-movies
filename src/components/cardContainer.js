@@ -34,6 +34,8 @@
                                         {children}
                                     </B.GetOneProvider>
                                   </div>)}
+                                  <div className={classes.cardGrid}></div>
+                                  <div className={classes.cardGrid}></div>
                             </div>
                           );
                         }}
@@ -47,13 +49,20 @@
       root: {
         background: 'rgb(2,0,36)',
         background: 'linear-gradient(90deg, rgba(50,3,3,1) 0%, rgba(121,9,9,1) 47%, rgba(205,54,54,1) 100%)',
-        // height: '100%'
+        display: 'block',
+        overflow: 'auto',
+        height:'100%'
+
       },
       container: {
         padding: '70px 5% 5% 5%',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
+        // '&::after': {
+        //   content: "''",
+        //   flex:'auto'
+        // },
         [`@media (max-height: 813px)`]: {
           padding: '70px 10px 50px 10px',
         }
