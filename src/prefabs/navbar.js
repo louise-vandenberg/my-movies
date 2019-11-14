@@ -12,6 +12,13 @@
             key: "HomeEndpoint",
             label: "Home Link"
 
+          },
+          {
+            type: "ENDPOINT",
+            value: '',
+            key: "MoviesEndpoint",
+            label: "Movies Link"
+
           }
         ],
         descendants: [],
