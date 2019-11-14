@@ -40,7 +40,7 @@
             background: 'black',
             color: 'white',
             fontFamily: 'Arial Black',
-            fontSize: '25px',
+            fontSize: '20px',
             padding: '20px',
 
         },
@@ -61,7 +61,10 @@
       link: {
         listStyleType: 'none',
         display: 'inline',
-        paddingRight: '50px'
+        paddingRight: '50px',
+        [`@media (max-height: 813px)`]: {
+            padding: '10px',
+          }
       },
       linkItem: {
         textDecoration: 'none',
@@ -73,7 +76,7 @@
         borderRadius: '5px',
         boxShadow: "0 0 8px 8px #6e1414 inset",
         [`@media (max-height: 813px)`]: {
-            fontSize: '15px'
+            fontSize: '15px',
           }
       }
      

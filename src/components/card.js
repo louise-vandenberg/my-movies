@@ -34,7 +34,7 @@
             const heading = B.useText(options.headingVariable);
             const image = B.useText(options.imageVariable);
             let description = B.useText(options.descriptionVariable);
-            description = description.substring(0, 100) + "...";
+            description = description.substring(0, 200) + "...";
             const genre = B.useText(options.genreVariable);
             const votes = B.useText(options.votesVariable);
             
@@ -86,7 +86,7 @@
     },
       main: {
           backgroundColor: "aliceblue",
-          fontFamily: "Comic Sans MS",
+          fontFamily: "Raleway",
           padding: '15px',
           boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
             display: 'grid',

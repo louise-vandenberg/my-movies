@@ -22,6 +22,7 @@
       backgroundRepeat: 'no-repeat',
       backgroundAttachment: 'fixed',
       backgroundPosition: 'center',
+      fontFamily: 'Arial Black',
 
     },
     container: {
