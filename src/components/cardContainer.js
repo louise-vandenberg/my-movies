@@ -7,8 +7,8 @@
         if(B.env === 'dev'){
           
             return (
-                <div className={classes.root}>
-                    bleh {children}
+                <div className={classes.builderMode}>
+                    {children.length < 1? "Card Container" : children}
                 </div>
             );
         } else{
@@ -46,6 +46,19 @@
       
     })(),
     styles: B => ({ typography }) => ({
+      builderMode: {
+        width: '100%',
+       
+        textAlign: 'center',
+        height: '300px',
+        top: '30px',
+        color: 'white',
+        fontFamily: 'Arial Black',
+        fontSize: '25px',
+        padding: '20px',
+        background: 'linear-gradient(90deg, rgba(50,3,3,1) 0%, rgba(121,9,9,1) 47%, rgba(205,54,54,1) 100%)',
+
+    },
       root: {
         background: 'rgb(2,0,36)',
         background: 'linear-gradient(90deg, rgba(50,3,3,1) 0%, rgba(121,9,9,1) 47%, rgba(205,54,54,1) 100%)',

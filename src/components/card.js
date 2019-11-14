@@ -9,13 +9,24 @@
         if(B.env === 'dev'){
             
             return (
-                <div className={classes.root}>
-                     <div className={classes.heading}>
-                         TITLE
-                     </div>
-                     <div className={classes.image}>
-                         IMAGE
-                     </div>
+                <div className={classes.builderMode}>
+                      <div className={classes.heading}>
+                      *****************Heading Variable*****************
+                    </div>
+                    <div className={classes.imageC}>
+                        Image Variable
+                    </div>
+                    <div className={classes.subtitle1}>
+                       Genre Variable
+                    </div>
+                    <div className={classes.subtitle2}>
+                       Votes Variable
+                    </div>
+                    <div className={classes.description}>
+                    *******************Description Variable*******************
+                    </div>
+                   
+                    
                 </div>
             );
         } else{
@@ -55,6 +66,24 @@
       
     })(),
     styles: B => ({ typography }) => ({
+      builderMode: {
+        width: '100%',
+       
+        textAlign: 'center',
+        
+        color: 'black',
+        fontFamily: 'Arial Black',
+        fontSize: '25px',
+        padding: '20px',
+        background: 'aliceblue',
+        display: 'grid',
+        gridTemplateAreas: `"content header header" 
+                            "content subtitle1 subtitle2" 
+                            "content description description"
+                            "content footer footer"`,
+        border: 'solid black 5px'
+
+    },
       main: {
           backgroundColor: "aliceblue",
           fontFamily: "Comic Sans MS",

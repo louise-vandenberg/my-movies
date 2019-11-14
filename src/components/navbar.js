@@ -7,7 +7,7 @@
         if(B.env === 'dev'){
           
             return (
-                <div className={classes.root}>
+                <div className={classes.builderMode}>
                     Navbar
                 </div>
             );
@@ -29,6 +29,18 @@
       
     })(),
     styles: B => ({ typography }) => ({
+        builderMode: {
+            width: '100%',
+            border: '1px solid #ccc',
+            textAlign: 'center',
+            height: '30px',
+            background: 'black',
+            color: 'white',
+            fontFamily: 'Arial Black',
+            fontSize: '25px',
+            padding: '20px',
+
+        },
       root: {
         background: 'black',
         position: 'fixed',
