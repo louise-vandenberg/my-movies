@@ -36,7 +36,7 @@
       backgroundAttachment: 'fixed',
       backgroundPosition: 'center',
       boxShadow: "0 0 8px 8px #6e1414 inset",
-      [`@media (max-height: 800px)`]: {
+      [`@media (max-height: 813px) and (max-width: 1317px)`]: {
         height: '50%'
       }
     },
@@ -51,13 +51,13 @@
       color: 'white',
       fontSize: '40px',
       textShadow: '2px 2px 4px #000000',
-      [`@media (max-height: 800px)`]: {
+      [`@media (max-height: 813px) and (max-width: 1317px)`]: {
         fontSize: '25px'
       }
     },
     subHeading: {
       textAlign: 'center',
-      [`@media (max-height: 800px)`]: {
+      [`@media (max-height: 813px) and (max-width: 1317px)`]: {
         fontSize: '15px'
       }
     },
@@ -75,7 +75,7 @@
       cursor: 'pointer',
       marginTop: '30px',
       marginBottom: '30px',
-      [`@media (max-height: 800px)`]: {
+      [`@media (max-height: 813px) and (max-width: 1317px)`]: {
         fontSize: '15px'
       }
     },

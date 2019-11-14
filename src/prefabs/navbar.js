@@ -6,13 +6,13 @@
       {
         name: 'Navbar',
         options: [
-        //   {
-        //     type: "MODEL",
-        //     value: '',
-        //     key: "modelId",
-        //     label: "Model"
+          {
+            type: "ENDPOINT",
+            value: '',
+            key: "HomeEndpoint",
+            label: "Home Link"
 
-        //   }
+          }
         ],
         descendants: [],
       },

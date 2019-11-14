@@ -50,15 +50,22 @@
         // height: '100%'
       },
       container: {
-        padding: '50px 10% 10% 50px',
+        padding: '70px 5% 5% 5%',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
+        [`@media (max-height: 813px)`]: {
+          padding: '70px 10px 50px 10px',
+        }
       },
       cardGrid: {
         padding: '10px',
         width: '500px',
-        height: '284px'
+        height: '284px',
+        [`@media (max-height: 813px)`]: {
+          width: '280px',
+          height: '380px',
+        }
       }
     
     }),
