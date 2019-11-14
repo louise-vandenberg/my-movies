@@ -30,16 +30,22 @@
             return(
                 <div className={classes.main}>
                     <div className={classes.heading}>
-                        <label>{heading}</label>
+                        {heading}
                     </div>
                     <div className={classes.imageC}>
                          <img className={classes.image} src={image}></img>
                     </div>
-                    <div className={classes.subtitle}>
-                        <label>{genre}{votes}</label>
+                    <div className={classes.subtitle1}>
+                        {genre}
+                    </div>
+                    <div className={classes.subtitle2}>
+                        {votes}
                     </div>
                     <div className={classes.description}>
-                        <label>{description}</label>
+                       {description}
+                    </div>
+                    <div className={classes.footer}>
+                       <B.Link>View more</B.Link>
                     </div>
                     
            </div>
@@ -51,19 +57,23 @@
     styles: B => ({ typography }) => ({
       main: {
           backgroundColor: "aliceblue",
-          padding: '10px',
+          fontFamily: "Comic Sans MS",
+          padding: '15px',
           boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
             display: 'grid',
-            gridGap: '10px',
+            gridGap: '20px',
 
             gridTemplateAreas: `"content header header" 
-                                 "content subtitle subtitle" 
-                                 "content description description"`,
+                                 "content subtitle1 subtitle2" 
+                                 "content description description"
+                                 "content footer footer"`,
 
   
       },
       heading: {
-        gridArea: 'header'
+        gridArea: 'header',
+        fontSize: '20px',
+        fontWeight: 'bold',
       },
 
       imageC: {
@@ -71,14 +81,25 @@
        
       },
       image: {
-        height: '200px',
+        height: '250px',
         width: '200px'
       },
-      subtitle: {
-          gridArea: 'subtitle'
+      subtitle1: {
+          gridArea: 'subtitle1',
+          fontSize: '15px'
       },
+      subtitle2: {
+        gridArea: 'subtitle2',
+        fontSize: '15px'
+    },
       description: {
-        gridArea: 'description'
+        gridArea: 'description',
+        fontSize: '17px'
+    },
+    footer: {
+        gridArea: 'footer',
+        fontSize: '15px',
+        justifySelf: 'end'
     }
   
     

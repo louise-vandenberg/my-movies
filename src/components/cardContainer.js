@@ -45,22 +45,20 @@
     })(),
     styles: B => ({ typography }) => ({
       root: {
-
-        padding: '10%',
-        height: '100%',
-       width: '100%'
-  
+        background: 'rgb(2,0,36)',
+        background: 'linear-gradient(90deg, rgba(50,3,3,1) 0%, rgba(121,9,9,1) 47%, rgba(205,54,54,1) 100%)',
+        // height: '100%'
       },
       container: {
+        padding: '50px 10% 10% 50px',
         display: 'flex',
-        height: '100%',
-        width: '100%',
         flexWrap: 'wrap',
-        justifyContent: 'space-evenly'
+        justifyContent: 'center',
       },
       cardGrid: {
-
-        width: '400px'
+        padding: '10px',
+        width: '500px',
+        height: '284px'
       }
     
     }),
