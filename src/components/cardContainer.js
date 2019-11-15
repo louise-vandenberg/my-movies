@@ -13,7 +13,7 @@
             );
         } else{
           const {GetAll} = B;
-          const {modelId} = options;
+          const {modelId} = options;          
             return(
                 <div className={classes.root}>
                     <GetAll modelId={modelId} skip={0} take={10}>

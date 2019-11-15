@@ -51,6 +51,22 @@
               dependsOn: 'model'
             }
           },
+          {
+            type: 'VARIABLE',
+            label: 'Id Variable',
+            key: 'idVariable',
+            value: ["Movie.id"],
+            configuration: {
+              dependsOn: 'model'
+            }
+          },
+          {
+            type: "ENDPOINT",
+            value: '',
+            key: "EndpointId",
+            label: "Movie details endpoint"
+
+          },
             
         ],
         descendants: [],

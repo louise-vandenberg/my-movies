@@ -37,6 +37,15 @@
             description = description.substring(0, 200) + "...";
             const genre = B.useText(options.genreVariable);
             const votes = B.useText(options.votesVariable);
+            const id = B.useText(options.idVariable);
+
+            const endpointId = options.EndpointId;
+            console.log(endpointId);
+            const getMoreLink = B.getEndpoint(endpointId);
+            console.log(getMoreLink.url);
+
+            let url = getMoreLink.url.substring(0, getMoreLink.url.indexOf(":"));
+            console.log(url);
             
             return(
                 <div className={classes.main}>
@@ -56,7 +65,7 @@
                        {description}
                     </div>
                     <div className={classes.footer}>
-                       <B.Link>View more</B.Link>
+                       <B.Link to={url+id}>View more</B.Link>
                     </div>
                     
            </div>
