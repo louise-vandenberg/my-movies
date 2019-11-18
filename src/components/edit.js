@@ -1,14 +1,14 @@
 (() => ({
-    name: 'CreateNew',
+    name: 'Edit',
     type: 'ROW',
-    allowedTypes: ["CARD"],
+    allowedTypes: [],
     orientation: 'HORIZONTAL',
     jsx: (()=> {
         if(B.env === 'dev'){
           
             return (
                 <div className={classes.builderMode}>
-                    Create New
+                    Edit
                 </div>
             );
         } else{
@@ -21,7 +21,7 @@
             return(
                 <div className={classes.main}>
                    <div className={classes.root}>
-                       <h1>Create new movie</h1>
+                       <h1>Edit movie</h1>
                        <br/>
                        <form action={url} method="post" enctype="multipart/form-data">
                             {propertyId.map((property)=>{
