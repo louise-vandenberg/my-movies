@@ -16,6 +16,7 @@
             const { movieId, modelId } = options;
             const variable = getVariable(movieId[1].id);
             let id;
+
             if (variable) {
               const params = useParams();
               const value = params[variable.name];
@@ -24,7 +25,8 @@
             }
          
             return(
-                <div className={classes.root}>
+                <div className={classes.main}>
+                    {/* <B.GetOne modelId={modelId} byId={5}> */}
                     <B.GetOne modelId={modelId} byId={id}>
                     {({ loading, error, data }) => {
                         if (loading) {
@@ -36,9 +38,9 @@
                         }
 
                         const { id } = data;
-                        console.log(data);
+                        const url = "https://my-movies-developer.bettywebblocks.com/movies/delete/";
                         return (
-                        <div>
+                        <div className={classes.root}>
                            
                             <div className={classes.heading}>
                                  {data.title}
@@ -55,7 +57,16 @@
                             <div className={classes.description}>
                                  {data.description}
                             </div>
-                          
+                            <div className={classes.footer}>
+                                 <button className={classes.buttons}>Upvote</button>
+                                 <button className={classes.buttons}>Edit</button>
+                                
+                                 <form  className={classes.form} action={url + data.id} method="post" enctype="multipart/form-data">
+                                      
+                                     <button className={classes.buttons}>Delete</button>
+                                </form>
+                               
+                            </div>
                             </div>
                         );
                 }}
@@ -67,35 +78,59 @@
     })(),
     styles: B => ({ typography }) => ({
         builderMode: {
+          background: 'rgb(2,0,36)',
+          background: 'linear-gradient(90deg, rgba(50,3,3,1) 0%, rgba(121,9,9,1) 47%, rgba(205,54,54,1) 100%)',
+         
+          height:'400px',
+          color: 'white',
+          fontSize: '20px',
+          textAlign: 'center',
+        },
+
+        main: {
+          background: 'rgb(2,0,36)',
+          background: 'linear-gradient(90deg, rgba(50,3,3,1) 0%, rgba(121,9,9,1) 47%, rgba(205,54,54,1) 100%)',
+          // display: 'block',
+          // overflow: 'auto',
+          height:'100%',
+          // width: '100%',
+          textAlign: 'center',
         },
 
       root: {
         backgroundColor: "aliceblue",
         fontFamily: "Raleway",
-        margin: '20%',
-        padding: '10%',
+        margin: '70px 10% 40px 10%',
+        // maxWidth: '800px',
+        
+        padding: '40px',
         boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-          display: 'grid',
-          
+        display: 'grid',
+        justifyItems: 'center',
 
-          gridTemplateAreas: `"content header header" 
-                               "content subtitle1 subtitle2" 
-                               "content description description"
-                               "content footer footer"`,
+          gridTemplateAreas: `"content header" 
+                               "content subtitle1" 
+                               "content subtitle2"
+                               "content description"
+                               "content footer"`,
 
           [`@media (max-height: 813px)`]: {
               gridTemplateAreas: 
-                 `"content content" 
-                  "header header" 
-                  "subtitle1 subtitle2"
-                  "description description"
-                  "footer footer"`,
-          }
+                 `"content" 
+                  "content"
+                  "header" 
+                  "subtitle1"
+                  "subtitle2"
+                  "description"
+                  "footer"`,
+          },
+         
     },
     heading: {
         gridArea: 'header',
-        fontSize: '20px',
+        fontSize: '40px',
         fontWeight: 'bold',
+        justifySelf: 'center',
         [`@media (max-height: 813px)`]: {
             fontSize: '18px',
           }
@@ -104,49 +139,81 @@
       imageC: {
         gridArea: 'content',
         justifySelf: 'center',
-       
-      },
-      image: {
-        height: '250px',
-        width: '200px',
+        marginRight: '40px',
         [`@media (max-height: 813px)`]: {
            
-            width: '150px',
-            height: '120px',
+          marginRight: '0px',
+        }
+      },
+      image: {
+        height: '450px',
+        width: '300px',
+        [`@media (max-height: 813px)`]: {
+          height: '200px',
+          width: '150px',
+            // width: '150px',
+            // height: '100px',
+            // marginRight: '20px',
+            // justifySelf: 'center',
           }
       },
       subtitle1: {
           gridArea: 'subtitle1',
-          fontSize: '15px',
+          fontSize: '25px',
+          justifySelf: 'center',
           [`@media (max-height: 813px)`]: {
             fontSize: '12px',
           }
       },
       subtitle2: {
         gridArea: 'subtitle2',
-        fontSize: '15px',
+        fontSize: '25px',
+        justifySelf: 'center',
         [`@media (max-height: 813px)`]: {
             fontSize: '12px',
           }
     },
       description: {
         gridArea: 'description',
-        fontSize: '17px',
+        fontSize: '20px',
         [`@media (max-height: 813px)`]: {
             fontSize: '14px',
           }
     },
     footer: {
         gridArea: 'footer',
-        fontSize: '15px',
+        fontSize: '20px',
         justifySelf: 'end',
+        display: 'inline',
         [`@media (max-height: 813px)`]: {
             fontSize: '12px',
+            justifySelf: 'center',
           }
-    }
+    },
+    form: {
+      display:'inline',
 
-   
-    
+    },
+    buttons: {
+      background: 'rgb(2,0,36)',
+      background: 'linear-gradient(90deg, rgba(50,3,3,1) 0%, rgba(121,9,9,1) 47%, rgba(205,54,54,1) 100%)',
+      color: 'white',
+      fontSize: '14px',
+      padding: '10px',
+      fontWeight: 'bold',
+      marginLeft: '5px',
+      "&:hover": {
+        background: 'black',
+        textDecoration: 'none',
+        cursor: 'pointer'
+      },
+      [`@media (max-height: 813px)`]: {
+        fontSize: '12px',
+        padding: '8px',
+        justifySelf: 'center',
+        marginTop:'10px'
+      }
+    }
     }),
   }))();
   

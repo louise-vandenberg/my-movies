@@ -12,7 +12,7 @@
                 </div>
             );
         } else{
-            const {HomeEndpoint, MoviesEndpoint} = options;
+            const {HomeEndpoint, MoviesEndpoint, CreateEndpoint} = options;
          
             return(
                 <div className={classes.root}>
@@ -23,7 +23,7 @@
                         <B.Link endpointId = {MoviesEndpoint} className={classes.linkItem}>Movies</B.Link>
                     </li>
                     <li className={classes.link}>
-                         <B.Link className={classes.linkItem}>New Movie</B.Link>
+                         <B.Link endpointId = {CreateEndpoint} className={classes.linkItem}>New Movie</B.Link>
                     </li>
                   
                 </div>

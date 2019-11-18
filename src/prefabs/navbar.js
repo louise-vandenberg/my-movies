@@ -19,7 +19,18 @@
             key: "MoviesEndpoint",
             label: "Movies Link"
 
+          },
+          {
+            type: "ENDPOINT",
+            value: '',
+            key: "CreateEndpoint",
+            label: "Create Movies Link"
+
           }
+
+          
+
+
         ],
         descendants: [],
       },

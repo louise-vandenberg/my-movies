@@ -16,7 +16,7 @@
           const {modelId} = options;          
             return(
                 <div className={classes.root}>
-                    <GetAll modelId={modelId} skip={0} take={10}>
+                    <GetAll modelId={modelId}>
                         {({loading, error, data, refetch})=>{
                           if(loading){
                             return <div>Loading</div>
@@ -34,6 +34,7 @@
                                         {children}
                                     </B.GetOneProvider>
                                   </div>)}
+                                  <div className={classes.cardGrid}></div>
                                   <div className={classes.cardGrid}></div>
                                   <div className={classes.cardGrid}></div>
                             </div>

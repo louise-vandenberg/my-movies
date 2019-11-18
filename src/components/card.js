@@ -45,7 +45,7 @@
             console.log(getMoreLink.url);
 
             let url = getMoreLink.url.substring(0, getMoreLink.url.indexOf(":"));
-            console.log(url);
+           
             
             return(
                 <div className={classes.main}>
