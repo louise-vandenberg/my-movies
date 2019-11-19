@@ -13,10 +13,23 @@
             );
         } else{
           const {GetAll} = B;
-          const {modelId} = options;          
+          const {modelId} = options;  
+          const take = parseInt(options.take);   
+          const [page, setPage] = useState(1);
+
             return(
                 <div className={classes.root}>
-                    <GetAll modelId={modelId}>
+                  <div className={classes.pagination}>
+                    <button onClick={()=>{
+                       page===0? true : setPage((prev)=>{return prev-1})
+                        }}>previous</button>
+                    <button  onClick={()=>{
+                      
+                      setPage((prev)=>{return prev+1})
+                      }}>next</button>
+                  </div>
+                          
+                    <GetAll modelId={modelId} skip={(page-1)*take} take={take}>
                         {({loading, error, data, refetch})=>{
                           if(loading){
                             return <div>Loading</div>
@@ -28,6 +41,7 @@
                           
                           return(
                             <div className={classes.container}>
+                               
                                 {results.map(item => 
                                   <div className={classes.cardGrid}>
                                     <B.GetOneProvider key={item.id} value={item}>
@@ -37,10 +51,12 @@
                                   <div className={classes.cardGrid}></div>
                                   <div className={classes.cardGrid}></div>
                                   <div className={classes.cardGrid}></div>
+                                 
                             </div>
                           );
                         }}
                     </GetAll>
+                   
                 </div>
             );
         }
@@ -69,7 +85,7 @@
 
       },
       container: {
-        padding: '70px 5% 5% 5%',
+        padding: '20px 5% 5% 5%',
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
@@ -89,6 +105,10 @@
           width: '280px',
           height: '380px',
         }
+      },
+      pagination: {
+        paddingTop: '80px',
+        textAlign: 'center'
       }
     
     }),

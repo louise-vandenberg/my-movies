@@ -12,6 +12,13 @@
             key: "modelId",
             label: "Model"
 
+          },
+          {
+            type: "NUMBER",
+            value: 10,
+            key: "take",
+            label: "Take"
+
           }
         ],
         descendants: [],

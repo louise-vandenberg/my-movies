@@ -39,12 +39,12 @@
             const votes = B.useText(options.votesVariable);
             const id = B.useText(options.idVariable);
 
-            const endpointId = options.EndpointId;
-            console.log(endpointId);
-            const getMoreLink = B.getEndpoint(endpointId);
-            console.log(getMoreLink.url);
+            // const endpointId = options.EndpointId;
+            // console.log(endpointId);
+            // const getMoreLink = B.getEndpoint(endpointId);
+            // console.log(getMoreLink.url);
 
-            let url = getMoreLink.url.substring(0, getMoreLink.url.indexOf(":"));
+            // let url = getMoreLink.url.substring(0, getMoreLink.url.indexOf(":"));
            
             
             return(
@@ -65,7 +65,7 @@
                        {description}
                     </div>
                     <div className={classes.footer}>
-                       <B.Link to={url+id}>View more</B.Link>
+                       {/* <B.Link to={url+id}>View more</B.Link> */}
                     </div>
                     
            </div>
