@@ -15,7 +15,12 @@
             const {propertyId, modelId} = options;
             const {getProperty, getModel, GetOne} = B;
             const modelObj = getModel(modelId);
-            const movieId = 1;
+
+            const params = useParams();
+            console.log(params);
+            const value = params.movieid;
+            console.log(value);
+            const movieId = parseInt(value);
             const url = "https://my-movies-developer.bettywebblocks.com/"+ modelObj.name+"/edit/"+movieId ;
             
             const MyForm = props => {

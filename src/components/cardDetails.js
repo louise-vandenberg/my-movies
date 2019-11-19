@@ -38,7 +38,8 @@
                         }
 
                         const { id } = data;
-                        const url = "https://my-movies-developer.bettywebblocks.com/movies/delete/";
+                        const urlDelete = "https://my-movies-developer.bettywebblocks.com/movies/delete/";
+                       
                         return (
                         <div className={classes.root}>
                            
@@ -59,10 +60,9 @@
                             </div>
                             <div className={classes.footer}>
                                  <button className={classes.buttons}>Upvote</button>
-                                 <button className={classes.buttons}>Edit</button>
-                                
-                                 <form  className={classes.form} action={url + data.id} method="post" enctype="multipart/form-data">
-                                      
+                                  <B.Link to={"/movies/edit/" + data.id}><button className={classes.buttons}>Edit</button></B.Link>
+                                 <form  className={classes.form} action={urlDelete + data.id} method="post" enctype="multipart/form-data">
+                        
                                      <button className={classes.buttons}>Delete</button>
                                 </form>
                                
