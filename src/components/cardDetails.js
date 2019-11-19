@@ -23,10 +23,45 @@
               id = parseInt(value, 10);
               
             }
+
+            const UpdateVotesForm = (props)=>{
+              const urlUpvote = "https://my-movies-developer.bettywebblocks.com/movies/upvote/";
+              const urlDownvote = "https://my-movies-developer.bettywebblocks.com/movies/downvote/";
+              let {votes, id} = props.data;
+              const [state, setState] = useState(parseInt(votes, 10));
+            
+              return (
+                      <div className={classes.subtitle2}>
+                      
+                           <iframe className={classes.iframeclass} name="iframe"></iframe>
+                      
+                       
+                          <form onSubmit={(e)=> {
+                              setState(prevState=> {
+                                return prevState-1;
+                              });
+                            return false;
+                          }}  target="iframe" className={classes.form} action={urlDownvote + id} method="post" enctype="multipart/form-data">
+                              <button type="submit" className={classes.buttons}>-</button>
+                          </form>
+                        {state} 
+                        <span>
+                          <form onSubmit={(e)=> {
+                              setState(prevState=> {
+                                return prevState+1;
+                              });
+                            return false;
+                          }}  target="iframe" className={classes.form} action={urlUpvote + id} method="post" enctype="multipart/form-data">
+                              <button type="submit" className={classes.buttons}>+</button>
+                          </form>
+                        </span>
+                    </div>
+              );
+
+            }
          
             return(
                 <div className={classes.main}>
-                    {/* <B.GetOne modelId={modelId} byId={5}> */}
                     <B.GetOne modelId={modelId} byId={id}>
                     {({ loading, error, data }) => {
                         if (loading) {
@@ -39,6 +74,7 @@
 
                         const { id } = data;
                         const urlDelete = "https://my-movies-developer.bettywebblocks.com/movies/delete/";
+
                        
                         return (
                         <div className={classes.root}>
@@ -50,18 +86,17 @@
                                 <img className={classes.image} src={data.image}></img>
                             </div>
                             <div className={classes.subtitle1}>
-                                {data.genre}
+                                {data.genre}         
                             </div>
-                            <div className={classes.subtitle2}>
-                                {data.votes}
-                            </div>
+                            <UpdateVotesForm data={data}/>
                             <div className={classes.description}>
                                  {data.description}
                             </div>
                             <div className={classes.footer}>
-                                 <button className={classes.buttons}>Upvote</button>
+                              
+
                                   <B.Link to={"/movies/edit/" + data.id}><button className={classes.buttons}>Edit</button></B.Link>
-                                 <form  className={classes.form} action={urlDelete + data.id} method="post" enctype="multipart/form-data">
+                                 <form className={classes.form} action={urlDelete + data.id} method="post" enctype="multipart/form-data">
                         
                                      <button className={classes.buttons}>Delete</button>
                                 </form>
@@ -212,7 +247,12 @@
         padding: '8px',
         justifySelf: 'center',
         marginTop:'10px'
-      }
+      },
+      
+    },
+    iframeclass: {
+      display: 'none',
+     
     }
     }),
   }))();
