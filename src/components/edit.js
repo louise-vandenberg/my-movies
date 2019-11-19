@@ -13,31 +13,66 @@
             );
         } else{
             const {propertyId, modelId} = options;
-            const {getProperty, getModel} = B;
+            const {getProperty, getModel, GetOne} = B;
             const modelObj = getModel(modelId);
-            const url = "https://my-movies-developer.bettywebblocks.com/"+ modelObj.name+"/new" ;
-            console.log(url);
+            const movieId = 1;
+            const url = "https://my-movies-developer.bettywebblocks.com/"+ modelObj.name+"/edit/"+movieId ;
+            
+            const MyForm = props => {
+                const [state, setState] = useState(props.data);
 
+                return(
+                    
+                    <form action={url} method="post" enctype="multipart/form-data">
+                         {propertyId.map((property)=>{
+                             
+                              const name = getProperty(property).name;
+                             
+                                // console.log(state[name]);
+                                return <div className={classes.new}>
+                                   <label className={classes.label}>{name}</label>
+                                   <input className={classes.inputBox}  
+                                         value={state[name]}
+                                            type="text" name={name} 
+                                            id="id"
+                                            onChange={event => {
+                                                let newValue = event.target.value;
+                                                setState(prev => ({
+                                                  ...prev,
+                                                  [name]: newValue,
+                                                }));
+                                              }}
+                                        />
+                                </div>
+                                                    
+                                })}
+                                <button className={classes.button}>Submit</button>
+                       
+                    </form>
+                );
+            }
+           
             return(
                 <div className={classes.main}>
                    <div className={classes.root}>
                        <h1>Edit movie</h1>
                        <br/>
-                       <form action={url} method="post" enctype="multipart/form-data">
-                            {propertyId.map((property)=>{
-                                
-                                const name = getProperty(property).name;
-                                  
-                                    // name="dto_blog[tags]
-                                    return <div className={classes.new}>
-                                                <label className={classes.label}>{name}</label>
-                                                <input className={classes.inputBox} type="text" name={name} id="id"></input>
-                                            </div>
-                                    
-                                })}
-                                <button className={classes.button}>Submit</button>
-                       </form>
+                       {/* <Input propertyId={propertyId} /> */}
+                       <GetOne modelId={modelId} byId={movieId}>
+                           {({loading, error, data})=> {
+                               if(loading){
+                                   return <span>Loading....</span>
+                               }
+                               if(error) {
+                                   return <span>Something went wrong: {error.message}</span>
+                               }
+                               return (
+                                   <MyForm data={data}/>                   
+                               );
+
+                           }}
                       
+                       </GetOne>
                    </div>
                 </div>
             );
