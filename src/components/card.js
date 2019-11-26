@@ -30,8 +30,9 @@
                 </div>
             );
         } else{
-
+            // console.log(options.headingVariable);
             const heading = B.useText(options.headingVariable);
+            // console.log(heading);
             const image = B.useText(options.imageVariable);
             let description = B.useText(options.descriptionVariable);
             description = description.substring(0, 200) + "...";
@@ -45,6 +46,8 @@
             // console.log(getMoreLink.url);
 
             // let url = getMoreLink.url.substring(0, getMoreLink.url.indexOf(":"));
+
+            const url = "/movies/"
            
             
             return(
@@ -65,7 +68,7 @@
                        {description}
                     </div>
                     <div className={classes.footer}>
-                       {/* <B.Link to={url+id}>View more</B.Link> */}
+                       <B.Link to={url+id}>View more</B.Link>
                     </div>
                     
            </div>

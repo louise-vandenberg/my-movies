@@ -16,18 +16,31 @@
           const {modelId} = options;  
           const take = parseInt(options.take);   
           const [page, setPage] = useState(1);
+          const [totalPages, setTotalPages] = useState(1);
+
+          const PaginationTag = props=>{
+            const totalCount = props.data.totalCount;
+          
+            setTotalPages(Math.ceil(totalCount/take), ()=>console.log(totalPages));
+           
+            return(
+              <div className={classes.pagination}>        
+            
+                    <button className={classes.button} onClick={()=>{
+                       (page===1)? true : setPage((prev)=>{return prev-1})
+                        }}>Previous</button>
+                     <button className={classes.button} onClick={()=>{
+                       (page<totalPages)? setPage((prev)=>{return prev+1}): true
+                        }}>Next</button>
+                      <br/>
+                  </div>
+            );
+           
+          }
 
             return(
                 <div className={classes.root}>
-                  <div className={classes.pagination}>
-                    <button onClick={()=>{
-                       page===0? true : setPage((prev)=>{return prev-1})
-                        }}>previous</button>
-                    <button  onClick={()=>{
-                      
-                      setPage((prev)=>{return prev+1})
-                      }}>next</button>
-                  </div>
+                  
                           
                     <GetAll modelId={modelId} skip={(page-1)*take} take={take}>
                         {({loading, error, data, refetch})=>{
@@ -38,20 +51,26 @@
                             return <div>Error: {error.message}</div>
                           }
                           const {results} = data;
+
                           
                           return(
-                            <div className={classes.container}>
-                               
+                            <div>
+                              <PaginationTag data={data}/>
+                              <div className={classes.container}>
+                              
                                 {results.map(item => 
                                   <div className={classes.cardGrid}>
                                     <B.GetOneProvider key={item.id} value={item}>
                                         {children}
                                     </B.GetOneProvider>
                                   </div>)}
+                                  {/* <div className={classes.cardGrid}></div>
                                   <div className={classes.cardGrid}></div>
-                                  <div className={classes.cardGrid}></div>
-                                  <div className={classes.cardGrid}></div>
-                                 
+                                  <div className={classes.cardGrid}></div> */}
+                              </div>
+                              <div className={classes.footer}>
+                                  Page {page} of {totalPages}
+                              </div>
                             </div>
                           );
                         }}
@@ -107,9 +126,43 @@
         }
       },
       pagination: {
+        display: 'block',
         paddingTop: '80px',
         textAlign: 'center'
-      }
+      },
+      button: {
+        
+        background: 'aliceblue',
+        border: 'none',
+        marginRight: '10px',
+        color: 'black',
+        padding: '15px 32px',
+        textAlign: 'center',
+        textDecoration: 'none',
+       
+        fontSize: '16px',
+        '&:hover': {
+          cursor: 'pointer'
+        },
+     
+        [`@media (max-height: 813px)`]: {
+          padding: '10px 27px',
+          fontSize: '12px',
+        }
+
+    },
+    footer: {
+      // background :'aliceblue',
+      color: 'white',
+      fontSize: '25px',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      // padding: '30px',
+      marginLeft: '30%',
+      marginRight: '30%'
+    }
+
+
     
     }),
   }))();

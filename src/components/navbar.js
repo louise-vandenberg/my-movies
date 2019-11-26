@@ -13,17 +13,21 @@
             );
         } else{
             const {HomeEndpoint, MoviesEndpoint, CreateEndpoint} = options;
+            console.log(options.endpointId)
          
             return(
                 <div className={classes.root}>
                     <li className={classes.link}>
-                        <B.Link endpointId = {HomeEndpoint} className={classes.linkItem}>Home</B.Link>
+                        {/* <B.Link endpointId = {HomeEndpoint} className={classes.linkItem}>Home</B.Link> */}
+                        <B.Link to = "/home" className={classes.linkItem}>Home</B.Link>
                     </li>
                     <li className={classes.link}>
-                        <B.Link endpointId = {MoviesEndpoint} className={classes.linkItem}>Movies</B.Link>
+                        {/* <B.Link endpointId = {MoviesEndpoint} className={classes.linkItem}>Movies</B.Link> */}
+                        <B.Link to = "/movies" className={classes.linkItem}>Movies</B.Link>
                     </li>
                     <li className={classes.link}>
-                         <B.Link endpointId = {CreateEndpoint} className={classes.linkItem}>New Movie</B.Link>
+                         {/* <B.Link endpointId = {CreateEndpoint} className={classes.linkItem}>New Movie</B.Link> */}
+                         <B.Link to = "/create" className={classes.linkItem}>New Movie</B.Link>
                     </li>
                   
                 </div>

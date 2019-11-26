@@ -8,7 +8,8 @@
               <div className={classes.content}>
                   <h1 className={classes.heading}>Movies</h1>
                  <h3 className={classes.subHeading}>Welcome to my movie app, created using page builder</h3>
-                  <B.Link endpointId={options.endpointId}><button className={classes.btn}>View</button></B.Link>
+                  {/* <B.Link endpointId={options.endpointId}><button className={classes.btn}>View</button></B.Link> */}
+                  <B.Link to="/movies"><button className={classes.btn}>View</button></B.Link>
               </div>
               
           </div>
